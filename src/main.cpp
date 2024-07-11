@@ -26,21 +26,21 @@ int main(int argc, char *argv[])
     characterStats1.setName(name1);
     characterStats1.setHealth(var);
     characterStats1.setAttack(var);
-    characterStats1.setDefense(var);
+    characterStats1.setDefence(var);
 
     CharacterStats characterStats2;
     QString name2 = "Wizard";
     characterStats2.setName(name2);
     characterStats2.setHealth(var);
     characterStats2.setAttack(var);
-    characterStats2.setDefense(var);
+    characterStats2.setDefence(var);
 
     CharacterStats characterStats3;
     QString name3 = "Rogue";
     characterStats3.setName(name3);
     characterStats3.setHealth(var);
     characterStats3.setAttack(var);
-    characterStats3.setDefense(var);
+    characterStats3.setDefence(var);
 
 
     // Create the model and populate it with character stats

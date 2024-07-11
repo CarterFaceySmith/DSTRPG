@@ -8,14 +8,15 @@ import QtQml.Models
 import PersonaKnockoff
 import content
 
+
+
 Window {
     visible: true
     width: 800
     height: 600
     title: "Character Stats Editor"
     color: "#f0f0f0"
-    property int currentIndex: 1 // Define currentIndex as a property
-
+    property int currentIndex; // Define currentIndex as a property
 
     Rectangle {
         width: parent.width
@@ -88,12 +89,12 @@ Window {
                             RowLayout {
                                 spacing: 10
                                 Label {
-                                    text: "Defense:"
+                                    text: "Defence:"
                                     font.bold: true
                                     color: "#333333"
                                 }
                                 Label {
-                                    text: model.defense
+                                    text: model.defence
                                     color: "#333333"
                                 }
                             }
@@ -104,11 +105,13 @@ Window {
                         anchors.fill: parent
                         onClicked: {
                             listView.currentIndex = index
+                            console.log("Selected Index:", listView.currentIndex)
                         }
                     }
                 }
             }
         }
+
 
         Rectangle {
             width: parent.width * 0.6
@@ -137,6 +140,7 @@ Window {
                     }
                 }
 
+                // Editor fields
                 RowLayout {
                     spacing: 20
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -149,8 +153,12 @@ Window {
                     TextField {
                         width: 200
                         placeholderText: "Enter name..."
-                        text: characterModel.get(currentIndex).name // Bind to C++ model
-                        onEditingFinished: characterModel.set(currentIndex, "name", text) // Update C++ model
+                        text: listView.currentItem ? listView.currentItem.model.name : ""
+                        onEditingFinished: {
+                            if (listView.currentItem) {
+                                characterModel.set(listView.currentIndex, "name", text)
+                            }
+                        }
                     }
                 }
 
@@ -165,8 +173,12 @@ Window {
                     }
                     SpinBox {
                         width: 80
-                        value: characterModel.get(currentIndex).health // Bind to C++ model
-                        onValueChanged: characterModel.set(currentIndex, "health", value) // Update C++ model
+                        value: listView.currentItem ? listView.currentItem.model.health : 0
+                        onValueChanged: {
+                            if (listView.currentItem) {
+                                characterModel.set(listView.currentIndex, "health", value)
+                            }
+                        }
                     }
                 }
 
@@ -181,8 +193,12 @@ Window {
                     }
                     SpinBox {
                         width: 80
-                        value: characterModel.get(currentIndex).attack // Bind to C++ model
-                        onValueChanged: characterModel.set(currentIndex, "attack", value) // Update C++ model
+                        value: listView.currentItem ? listView.currentItem.model.attack : 0
+                        onValueChanged: {
+                            if (listView.currentItem) {
+                                characterModel.set(listView.currentIndex, "attack", value)
+                            }
+                        }
                     }
                 }
 
@@ -191,14 +207,18 @@ Window {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
                     Text {
-                        text: "Defense:"
+                        text: "Defence:"
                         font.bold: true
                         color: "#333333"
                     }
                     SpinBox {
                         width: 80
-                        value: characterModel.get(currentIndex).defense // Bind to C++ model
-                        onValueChanged: characterModel.set(currentIndex, "defense", value) // Update C++ model
+                        value: listView.currentItem ? listView.currentItem.model.defence : 0
+                        onValueChanged: {
+                            if (listView.currentItem) {
+                                characterModel.set(listView.currentIndex, "defence", value)
+                            }
+                        }
                     }
                 }
             }

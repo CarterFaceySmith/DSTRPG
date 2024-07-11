@@ -27,8 +27,8 @@ QVariant CharacterModel::data(const QModelIndex &index, int role) const
         return character.health();
     case AttackRole:
         return character.attack();
-    case DefenseRole:
-        return character.defense();
+    case DefenceRole:
+        return character.defence();
     default:
         return QVariant();
     }
@@ -47,8 +47,8 @@ void CharacterModel::set(int index, const QString &role, const QVariant &value)
         character.setHealth(value.toInt());
     } else if (role == "attack") {
         character.setAttack(value.toInt());
-    } else if (role == "defense") {
-        character.setDefense(value.toInt());
+    } else if (role == "defence") {
+        character.setDefence(value.toInt());
     }
 
     QModelIndex idx = createIndex(index, 0);
@@ -63,7 +63,7 @@ QVariantMap CharacterModel::get(int index) const
         map["name"] = character.name();
         map["health"] = character.health();
         map["attack"] = character.attack();
-        map["defense"] = character.defense();
+        map["defence"] = character.defence();
     }
     return map;
 }
@@ -74,7 +74,7 @@ QHash<int, QByteArray> CharacterModel::roleNames() const
     roles[NameRole] = "name";
     roles[HealthRole] = "health";
     roles[AttackRole] = "attack";
-    roles[DefenseRole] = "defense";
+    roles[DefenceRole] = "defence";
     return roles;
 }
 
@@ -95,8 +95,8 @@ bool CharacterModel::setData(const QModelIndex &index, const QVariant &value, in
     case AttackRole:
         character.setAttack(value.toInt());
         break;
-    case DefenseRole:
-        character.setDefense(value.toInt());
+    case DefenceRole:
+        character.setDefence(value.toInt());
         break;
     default:
         return false;
