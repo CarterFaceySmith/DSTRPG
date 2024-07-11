@@ -17,18 +17,37 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<CharacterModel>("PersonaKnockoffApp", 1, 0, "CharacterModel");
+    qmlRegisterType<CharacterModel>("MyApp", 1, 0, "CharacterModel");
 
     // Create the main character stats object
-    CharacterStats characterStats;
-    characterStats.setName("Hero");
-    characterStats.setHealth(100);
-    characterStats.setAttack(50);
-    characterStats.setDefense(30);
+    int var = 100;
+    CharacterStats characterStats1;
+    QString name1 = "Warrior";
+    characterStats1.setName(name1);
+    characterStats1.setHealth(var);
+    characterStats1.setAttack(var);
+    characterStats1.setDefense(var);
+
+    CharacterStats characterStats2;
+    QString name2 = "Wizard";
+    characterStats2.setName(name2);
+    characterStats2.setHealth(var);
+    characterStats2.setAttack(var);
+    characterStats2.setDefense(var);
+
+    CharacterStats characterStats3;
+    QString name3 = "Rogue";
+    characterStats3.setName(name3);
+    characterStats3.setHealth(var);
+    characterStats3.setAttack(var);
+    characterStats3.setDefense(var);
+
 
     // Create the model and populate it with character stats
     CharacterModel characterModel;
-    characterModel.addCharacter(characterStats);
+    characterModel.addCharacter(characterStats1);
+    characterModel.addCharacter(characterStats2);
+    characterModel.addCharacter(characterStats3);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("characterModel", &characterModel);

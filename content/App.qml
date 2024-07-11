@@ -205,12 +205,12 @@ Window {
         }
     }
 
-    Component.onCompleted: {
-        // Initialize character model data (for testing)
-        characterModel.addCharacter({ name: "Warrior", health: 120, attack: 60, defense: 40 });
-        characterModel.addCharacter({ name: "Mage", health: 100, attack: 80, defense: 20 });
-        characterModel.addCharacter({ name: "Rogue", health: 90, attack: 70, defense: 30 });
-    }
+    // Component.onCompleted: {
+    //     // Initialize character model data (for testing)
+    //     characterModel.addCharacter({ name: "Warrior", health: 120, attack: 60, defense: 40 });
+    //     characterModel.addCharacter({ name: "Mage", health: 100, attack: 80, defense: 20 });
+    //     characterModel.addCharacter({ name: "Rogue", health: 90, attack: 70, defense: 30 });
+    // }
 
     // C++ backend integration
     // Component {
