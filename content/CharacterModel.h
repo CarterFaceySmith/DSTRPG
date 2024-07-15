@@ -14,7 +14,11 @@ public:
         NameRole = Qt::UserRole + 1,
         HealthRole,
         AttackRole,
-        DefenceRole
+        DefenceRole,
+        LevelRole,
+        IntelligenceRole,
+        StrengthRole,
+        ManaRole
     };
 
     explicit CharacterModel(QObject *parent = nullptr);

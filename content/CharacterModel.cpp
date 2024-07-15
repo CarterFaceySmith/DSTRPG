@@ -29,6 +29,14 @@ QVariant CharacterModel::data(const QModelIndex &index, int role) const
         return character.attack();
     case DefenceRole:
         return character.defence();
+    case LevelRole:
+        return character.level();
+    case IntelligenceRole:
+        return character.intelligence();
+    case StrengthRole:
+        return character.strength();
+    case ManaRole:
+        return character.mana();
     default:
         return QVariant();
     }
@@ -49,6 +57,14 @@ void CharacterModel::set(int index, const QString &role, const QVariant &value)
         character.setAttack(value.toInt());
     } else if (role == "defence") {
         character.setDefence(value.toInt());
+    } else if (role == "level") {
+        character.setLevel(value.toInt());
+    } else if (role == "intelligence") {
+        character.setIntelligence(value.toInt());
+    } else if (role == "strength") {
+        character.setStrength(value.toInt());
+    } else if (role == "mana") {
+        character.setMana(value.toInt());
     }
 
     QModelIndex idx = createIndex(index, 0);
@@ -64,6 +80,10 @@ QVariantMap CharacterModel::get(int index) const
         map["health"] = character.health();
         map["attack"] = character.attack();
         map["defence"] = character.defence();
+        map["level"] = character.level();
+        map["intelligence"] = character.intelligence();
+        map["strength"] = character.strength();
+        map["mana"] = character.mana();
     }
     return map;
 }
@@ -75,6 +95,10 @@ QHash<int, QByteArray> CharacterModel::roleNames() const
     roles[HealthRole] = "health";
     roles[AttackRole] = "attack";
     roles[DefenceRole] = "defence";
+    roles[LevelRole] = "level";
+    roles[IntelligenceRole] = "intelligence";
+    roles[StrengthRole] = "strength";
+    roles[ManaRole] = "mana";
     return roles;
 }
 
@@ -97,6 +121,18 @@ bool CharacterModel::setData(const QModelIndex &index, const QVariant &value, in
         break;
     case DefenceRole:
         character.setDefence(value.toInt());
+        break;
+    case LevelRole:
+        character.setLevel(value.toInt());
+        break;
+    case IntelligenceRole:
+        character.setIntelligence(value.toInt());
+        break;
+    case StrengthRole:
+        character.setStrength(value.toInt());
+        break;
+    case ManaRole:
+        character.setMana(value.toInt());
         break;
     default:
         return false;

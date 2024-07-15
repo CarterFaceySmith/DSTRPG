@@ -11,6 +11,19 @@
 #include "content/CharacterModel.h"
 #include "qqmlcontext.h"
 
+CharacterStats createChar(QString name, int level, int health, int mana, int attack, int defence, int intelligence, int strength){
+    CharacterStats charStats;
+    charStats.setName(name);
+    charStats.setLevel(level);
+    charStats.setHealth(health);
+    charStats.setMana(mana);
+    charStats.setAttack(attack);
+    charStats.setDefence(defence);
+    charStats.setIntelligence(intelligence);
+    charStats.setStrength(strength);
+    return charStats;
+}
+
 int main(int argc, char *argv[])
 {
     set_qt_environment();
@@ -20,34 +33,15 @@ int main(int argc, char *argv[])
     qmlRegisterType<CharacterModel>("MyApp", 1, 0, "CharacterModel");
 
     // Create the main character stats object
-    int var = 100;
-    CharacterStats characterStats1;
-    QString name1 = "Warrior";
-    characterStats1.setName(name1);
-    characterStats1.setHealth(var);
-    characterStats1.setAttack(var);
-    characterStats1.setDefence(var);
-
-    CharacterStats characterStats2;
-    QString name2 = "Wizard";
-    characterStats2.setName(name2);
-    characterStats2.setHealth(var);
-    characterStats2.setAttack(var);
-    characterStats2.setDefence(var);
-
-    CharacterStats characterStats3;
-    QString name3 = "Rogue";
-    characterStats3.setName(name3);
-    characterStats3.setHealth(var);
-    characterStats3.setAttack(var);
-    characterStats3.setDefence(var);
-
+    CharacterStats warriorStats = createChar("Warrior", 10, 100, 10, 30, 60, 10, 80);
+    CharacterStats mageStats = createChar("Mage", 10, 100, 100, 10, 10, 80, 10);
+    CharacterStats rogueStats = createChar("Rogue", 10, 100, 50, 20, 30, 40, 40);
 
     // Create the model and populate it with character stats
     CharacterModel characterModel;
-    characterModel.addCharacter(characterStats1);
-    characterModel.addCharacter(characterStats2);
-    characterModel.addCharacter(characterStats3);
+    characterModel.addCharacter(warriorStats);
+    characterModel.addCharacter(mageStats);
+    characterModel.addCharacter(rogueStats);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("characterModel", &characterModel);

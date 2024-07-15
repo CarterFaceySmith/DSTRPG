@@ -8,8 +8,6 @@ import QtQml.Models
 import PersonaKnockoff
 import content
 
-
-
 Window {
     visible: true
     width: 800
@@ -34,7 +32,7 @@ Window {
 
             delegate: Item {
                 width: parent.width
-                height: 120
+                height: 220
                 Rectangle {
                     width: parent.width
                     height: parent.height
@@ -42,7 +40,10 @@ Window {
                     border.color: "#cccccc"
                     border.width: 2
                     radius: 10
-                    Behavior on color { ColorAnimation { duration: 200 } }
+
+                    Behavior on color {
+                        ColorAnimation { duration: 200; easing.type: Easing.InOutQuad }
+                    }
 
                     RowLayout {
                         anchors.fill: parent
@@ -56,24 +57,49 @@ Window {
                                 font.pixelSize: 20
                                 color: "#333333"
                             }
-                            Label {
-                                text: "Level " + (index + 1)
-                                font.italic: true
-                                font.pixelSize: 16
-                                color: "#666666"
+                            RowLayout {
+                                Label {
+                                    text: "Level " + model.level
+                                    font.italic: true
+                                    font.pixelSize: 16
+                                    color: "#666666"
+                                }
                             }
                             RowLayout {
                                 spacing: 10
-                                Label {
-                                    text: "Health:"
+                                Text {
+                                    text: "Health"
                                     font.bold: true
                                     color: "#333333"
+                                }
+                                ProgressBar {
+                                    value: model.health
+                                    from: 0
+                                    to: model.health
                                 }
                                 Label {
                                     text: model.health
                                     color: "#333333"
                                 }
                             }
+                            RowLayout {
+                                spacing: 10
+                                Text {
+                                    text: "Mana"
+                                    font.bold: true
+                                    color: "#333333"
+                                }
+                                ProgressBar {
+                                    value: model.mana
+                                    from: 0
+                                    to: model.mana
+                                }
+                                Label {
+                                    text: model.mana
+                                    color: "#333333"
+                                }
+                            }
+
                             RowLayout {
                                 spacing: 10
                                 Label {
@@ -98,6 +124,30 @@ Window {
                                     color: "#333333"
                                 }
                             }
+                            RowLayout {
+                                spacing: 10
+                                Label {
+                                    text: "Intelligence:"
+                                    font.bold: true
+                                    color: "#333333"
+                                }
+                                Label {
+                                    text: model.intelligence
+                                    color: "#333333"
+                                }
+                            }
+                            RowLayout {
+                                spacing: 10
+                                Label {
+                                    text: "Strength:"
+                                    font.bold: true
+                                    color: "#333333"
+                                }
+                                Label {
+                                    text: model.strength
+                                    color: "#333333"
+                                }
+                            }
                         }
                     }
 
@@ -111,130 +161,5 @@ Window {
                 }
             }
         }
-
-
-        Rectangle {
-            width: parent.width * 0.6
-            height: parent.height
-            anchors.right: parent.right
-            color: "#f0f0f0"
-
-            ColumnLayout {
-                anchors.fill: parent
-                spacing: 20
-
-                Rectangle {
-                    width: parent.width
-                    height: 100
-                    color: "#e0e0e0"
-                    border.color: "#cccccc"
-                    border.width: 2
-                    radius: 10
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    Text {
-                        text: "Character Editor"
-                        font.bold: true
-                        font.pixelSize: 24
-                        color: "#333333"
-                    }
-                }
-
-                // Editor fields
-                RowLayout {
-                    spacing: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    Text {
-                        text: "Name:"
-                        font.bold: true
-                        color: "#333333"
-                    }
-                    TextField {
-                        width: 200
-                        placeholderText: "Enter name..."
-                        text: listView.currentItem ? listView.currentItem.model.name : ""
-                        onEditingFinished: {
-                            if (listView.currentItem) {
-                                characterModel.set(listView.currentIndex, "name", text)
-                            }
-                        }
-                    }
-                }
-
-                RowLayout {
-                    spacing: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    Text {
-                        text: "Health:"
-                        font.bold: true
-                        color: "#333333"
-                    }
-                    SpinBox {
-                        width: 80
-                        value: listView.currentItem ? listView.currentItem.model.health : 0
-                        onValueChanged: {
-                            if (listView.currentItem) {
-                                characterModel.set(listView.currentIndex, "health", value)
-                            }
-                        }
-                    }
-                }
-
-                RowLayout {
-                    spacing: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    Text {
-                        text: "Attack:"
-                        font.bold: true
-                        color: "#333333"
-                    }
-                    SpinBox {
-                        width: 80
-                        value: listView.currentItem ? listView.currentItem.model.attack : 0
-                        onValueChanged: {
-                            if (listView.currentItem) {
-                                characterModel.set(listView.currentIndex, "attack", value)
-                            }
-                        }
-                    }
-                }
-
-                RowLayout {
-                    spacing: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-                    Text {
-                        text: "Defence:"
-                        font.bold: true
-                        color: "#333333"
-                    }
-                    SpinBox {
-                        width: 80
-                        value: listView.currentItem ? listView.currentItem.model.defence : 0
-                        onValueChanged: {
-                            if (listView.currentItem) {
-                                characterModel.set(listView.currentIndex, "defence", value)
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
-
-    // Component.onCompleted: {
-    //     // Initialize character model data (for testing)
-    //     characterModel.addCharacter({ name: "Warrior", health: 120, attack: 60, defense: 40 });
-    //     characterModel.addCharacter({ name: "Mage", health: 100, attack: 80, defense: 20 });
-    //     characterModel.addCharacter({ name: "Rogue", health: 90, attack: 70, defense: 30 });
-    // }
-
-    // C++ backend integration
-    // Component {
-    //     id: characterModel
-    //     charactermodel {}
-    // }
 }
