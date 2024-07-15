@@ -14,7 +14,6 @@ ApplicationWindow {
     height: 600
     title: "DSTRPG"
     color: "#f0f0f0"
-    property int currentIndex; // Define currentIndex as a property
 
     PartyStats {}
     RowLayout {

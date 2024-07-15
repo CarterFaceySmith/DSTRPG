@@ -67,12 +67,12 @@ Rectangle {
                                 states: [
                                     State {
                                         name: "not rinzler"
-                                        when: model.name !== "RINZLR"  // Change condition as needed
+                                        when: model.name !== "RINZLR"
                                         PropertyChanges { target: healthProgressBar; indeterminate: false }
                                     },
                                     State {
                                         name: "rinzler"
-                                        when: model.name === "RINZLR"  // Change condition as needed
+                                        when: model.name === "RINZLR"
                                         PropertyChanges { target: healthProgressBar; indeterminate: true }
                                     }
                                 ]
