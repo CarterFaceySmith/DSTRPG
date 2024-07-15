@@ -60,9 +60,22 @@ Rectangle {
                                 color: "#333333"
                             }
                             ProgressBar {
+                                id: healthProgressBar
                                 value: model.health
                                 from: 0
                                 to: model.health
+                                states: [
+                                    State {
+                                        name: "not rinzler"
+                                        when: model.name !== "RINZLR"  // Change condition as needed
+                                        PropertyChanges { target: healthProgressBar; indeterminate: false }
+                                    },
+                                    State {
+                                        name: "rinzler"
+                                        when: model.name === "RINZLR"  // Change condition as needed
+                                        PropertyChanges { target: healthProgressBar; indeterminate: true }
+                                    }
+                                ]
                             }
                             Label {
                                 text: model.health
@@ -77,9 +90,22 @@ Rectangle {
                                 color: "#333333"
                             }
                             ProgressBar {
+                                id: manaProgressBar
                                 value: model.mana
                                 from: 0
                                 to: model.mana
+                                states: [
+                                    State {
+                                        name: "not rinzler"
+                                        when: model.name !== "RINZLR"
+                                        PropertyChanges { target: manaProgressBar; indeterminate: false }
+                                    },
+                                    State {
+                                        name: "rinzler"
+                                        when: model.name === "RINZLR"
+                                        PropertyChanges { target: manaProgressBar; indeterminate: true }
+                                    }
+                                ]
                             }
                             Label {
                                 text: model.mana
