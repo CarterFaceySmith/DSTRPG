@@ -1,4 +1,3 @@
-
 ## Overview
 
 A simple, in-progress, text-based RPG concept using C++ and Qt.

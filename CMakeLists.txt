@@ -17,6 +17,8 @@ qt_add_executable(DSTRPG src/main.cpp
 
     content/CharacterModel.h content/CharacterModel.cpp
     content/CharacterStats.h content/CharacterStats.cpp
+    README.md
+    README.md
 )
 
 qt_add_resources(DSTRPG "configuration"
