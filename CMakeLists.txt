@@ -14,7 +14,7 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(DSTRPG src/main.cpp
-    content/CharacterStatsView.qml
+
     content/CharacterModel.h content/CharacterModel.cpp
     content/CharacterStats.h content/CharacterStats.cpp
 )
