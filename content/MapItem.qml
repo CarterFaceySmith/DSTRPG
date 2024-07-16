@@ -1,15 +1,18 @@
-import QtQuick 2.15
+import QtQuick
+import QtQuick.Layouts
 
 Rectangle {
     width: parent.width * 0.4
     height: parent.height
     color: "light gray"
-    anchors.left: parent.left
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.right: parent.right
 
     Repeater {
         model: 9
-        delegate: Row {
+        delegate: RowLayout {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 3  // Adjust spacing between rectangles as needed
+
             Repeater {
                 model: 9
                 delegate: Rectangle {

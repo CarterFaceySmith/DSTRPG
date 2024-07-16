@@ -5,9 +5,11 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts
 
 Rectangle {
-    width: parent.width * 0.4
+    width: parent.width * 0.3
     height: parent.height
     color: "#f0f0f0"
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
 
     ColumnLayout {
         spacing: 10
@@ -40,30 +42,13 @@ Rectangle {
             // Simple dungeon map layout
             Rectangle {
                 anchors.centerIn: parent
-                width: parent.width * 0.8
-                height: parent.height * 0.8
+                width: parent.width * 0.2
+                height: parent.height * 0.2
                 color: "#9e7c3d"
                 border.color: "#333333"
                 border.width: 2
                 radius: 10
 
-            }
-        }
-
-        Rectangle {
-            width: parent.width
-            height: 100
-            color: "#e0e0e0"
-            border.color: "#cccccc"
-            border.width: 2
-            radius: 10
-
-            Text {
-                anchors.centerIn: parent
-                text: "Legend"
-                font.bold: true
-                font.pixelSize: 18
-                color: "#333333"
             }
         }
     }

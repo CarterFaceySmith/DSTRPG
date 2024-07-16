@@ -1,8 +1,9 @@
 // main.qml
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
+import DSTRPG
 
 ApplicationWindow {
     visible: true
@@ -11,8 +12,17 @@ ApplicationWindow {
     title: "DSTRPG"
     color: "#f0f0f0"
 
+    // DungeonGenerator {
+    //     id: dungeonGenerator
+    // }
+
     PartyStats{}
     MapItem {}
+    // MapPage {}
+
+    // DungeonGrid {
+    //     dungeonGenerator: dungeonGenerator
+    // }
 
     // Main content layout
     // RowLayout {

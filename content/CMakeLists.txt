@@ -15,4 +15,6 @@ qt6_add_qml_module(content
         QML_FILES MapPage.qml
         QML_FILES PartyStats.qml
         QML_FILES MapItem.qml
+        SOURCES
+        QML_FILES DungeonGrid.qml
 )
