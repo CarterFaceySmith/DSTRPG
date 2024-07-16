@@ -6,10 +6,10 @@ Rectangle {
     width: parent.width
     height: parent.height
     color: "#ffffff"
-    property int currentIndex;
 
     ListView {
         id: listView
+        property int currentIndex;
         width: parent.width * 0.25
         height: parent.height
         anchors.left: parent.left

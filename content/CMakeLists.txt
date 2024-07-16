@@ -14,5 +14,5 @@ qt6_add_qml_module(content
         QML_FILES CharacterEditor.qml
         QML_FILES MapPage.qml
         QML_FILES PartyStats.qml
-        RESOURCES README.md
+        QML_FILES MapItem.qml
 )

@@ -5,7 +5,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts
 
 Rectangle {
-    width: parent.width * 0.4 // Adjust as needed
+    width: parent.width * 0.4
     height: parent.height
     color: "#f0f0f0"
 
@@ -47,7 +47,6 @@ Rectangle {
                 border.width: 2
                 radius: 10
 
-                // Add more dungeon elements as needed
             }
         }
 
