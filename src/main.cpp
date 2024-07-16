@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
 
     // Create the main character stats object
     CharacterStats warriorStats = createChar("Warrior", 10, 100, 10, 30, 60, 10, 80);
-    CharacterStats mageStats = createChar("Mage", 10, 100, 100, 10, 10, 80, 10);
-    CharacterStats rogueStats = createChar("Rogue", 10, 100, 50, 20, 30, 40, 40);
+    CharacterStats mageStats = createChar("Mage", 10, 50, 100, 10, 10, 80, 10);
+    CharacterStats rogueStats = createChar("Rogue", 10, 75, 50, 20, 30, 40, 40);
     CharacterStats rinzlerStats = createChar("RINZLR", 90, 1000, 1000, 200, 200, 200, 200);
     // Create the model and populate it with character stats
     CharacterModel characterModel;

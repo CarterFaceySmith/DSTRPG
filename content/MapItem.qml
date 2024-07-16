@@ -1,23 +1,22 @@
-// MapItem.qml
-
 import QtQuick 2.15
 
 Rectangle {
     width: parent.width * 0.4
     height: parent.height
-    color: "#ffffff"
-    anchors.right: parent.right
+    color: "light gray"
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
-        model: 5  // Generate 5 rows
+        model: 9
         delegate: Row {
             Repeater {
-                model: 5  // Generate five columns
+                model: 9
                 delegate: Rectangle {
                     width: 40
                     height: 40
                     color: "green"
-                    border.color: "white"
+                    border.color: "light gray"
                     border.width: 3
                 }
             }
