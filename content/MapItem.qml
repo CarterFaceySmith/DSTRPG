@@ -3,9 +3,10 @@
 import QtQuick 2.15
 
 Rectangle {
-    width: 400
-    height: 300
-    color: "lightblue"  // Background colour
+    width: parent.width * 0.4
+    height: parent.height
+    color: "#ffffff"
+    anchors.right: parent.right
 
     Repeater {
         model: 5  // Generate 5 rows
@@ -17,7 +18,7 @@ Rectangle {
                     height: 40
                     color: "green"
                     border.color: "white"
-                    border.width: 1
+                    border.width: 3
                 }
             }
         }

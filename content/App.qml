@@ -12,11 +12,14 @@ ApplicationWindow {
     color: "#f0f0f0"
 
     PartyStats{}
+    MapItem {}
 
     // Main content layout
     // RowLayout {
     //     // Left side: Party
-    //     PartyStats {}
+    //     PartyStats {
+    //         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+    //     }
 
     //     // Right side: Map
     //     MapItem {
