@@ -4,7 +4,7 @@ import QtQuick.Layouts
 Rectangle {
     width: parent.width * 0.7
     height: parent.height
-    color: "light gray"
+    color: "white"
     anchors.right: parent.right
 
     GridLayout {
@@ -29,22 +29,51 @@ Rectangle {
             Layout.preferredHeight: grid.prefHeight(this)
             CharacterEditor{}
         }
-        Rectangle {
-            color: 'yellow'
-            Layout.rowSpan: 8
-            Layout.columnSpan: 10
-            Layout.preferredWidth: grid.prefWidth(this)
-            Layout.preferredHeight: grid.prefHeight(this)
-            Text {
-                font.pixelSize: 26
-                color: "#333333"
+        // Rectangle {
+        //     color: 'yellow'
+        //     Layout.rowSpan: 8
+        //     Layout.columnSpan: 10
+        //     Layout.preferredWidth: grid.prefWidth(this)
+        //     Layout.preferredHeight: grid.prefHeight(this)
+        //     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        //     // Text {
+        //     //     font.pixelSize: 26
+        //     //     color: "#333333"
+        //     //     anchors.top: parent.top
+        //     //     anchors.horizontalCenter: parent.horizontalCenter
+        //     //     text: qsTr("MAP AREA")
+        //     // }
+        Repeater {
+            model: 4
+            Row {
+                spacing: 10
+                Layout.rowSpan: 2
+                Layout.columnSpan: 10
+                Layout.preferredWidth: grid.prefWidth(this)
+                Layout.preferredHeight: grid.prefHeight(this)
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                text: qsTr("MAP AREA")
+                Repeater {
+                    model: 7
+                    Rectangle {
+                        Text {
+                            text: qsTr("Map Square")
+                        }
+
+                        width: parent.width / 8
+                        height: parent.height
+                        color: "#9e7c3d"
+                        border.color: "#333333"
+                        border.width: 2
+                        radius: 10
+                    }
+                }
             }
+
         }
+
         Rectangle {
             id: greenRect
-            color: 'green'
+            color: 'light green'
             Layout.rowSpan: 4
             Layout.columnSpan: 12
             Layout.preferredWidth: grid.prefWidth(this)
@@ -52,7 +81,7 @@ Rectangle {
             Text {
                 font.pixelSize: 26
                 color: "#333333"
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
                 text: qsTr("TEXT OUTPUT AREA")
             }
         }
