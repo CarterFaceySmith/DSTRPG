@@ -4,7 +4,7 @@ import QtQuick.Controls
 
 Item {
     Rectangle {
-        width: parent.width * 0.6
+        width: parent.width
         height: parent.height
         anchors.right: parent.right
         color: "#f0f0f0"
@@ -20,12 +20,11 @@ Item {
                 border.color: "#cccccc"
                 border.width: 2
                 radius: 10
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
                     text: "Character Editor"
-                    font.bold: true
-                    font.pixelSize: 28
+                    font.pixelSize: 26
                     color: "#333333"
                 }
             }
@@ -33,10 +32,10 @@ Item {
             // Editor fields
             RowLayout {
                 spacing: 20
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
-                    text: "Name:"
+                    text: "UID"
                     font.bold: true
                     color: "#333333"
                 }
@@ -54,15 +53,15 @@ Item {
 
             RowLayout {
                 spacing: 20
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
-                    text: "Health:"
+                    text: "HTH"
                     font.bold: true
                     color: "#333333"
                 }
                 SpinBox {
-                    width: 80
+                    width: 100
                     value: listView.currentItem ? listView.currentItem.model.health : 0
                     onValueChanged: {
                         if (listView.currentItem) {
@@ -74,15 +73,15 @@ Item {
 
             RowLayout {
                 spacing: 20
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
-                    text: "Attack:"
+                    text: "ATK"
                     font.bold: true
                     color: "#333333"
                 }
                 SpinBox {
-                    width: 80
+                    width: 100
                     value: listView.currentItem ? listView.currentItem.model.attack : 0
                     onValueChanged: {
                         if (listView.currentItem) {
@@ -94,15 +93,15 @@ Item {
 
             RowLayout {
                 spacing: 20
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
-                    text: "Defence:"
+                    text: "DEF"
                     font.bold: true
                     color: "#333333"
                 }
                 SpinBox {
-                    width: 80
+                    width: 100
                     value: listView.currentItem ? listView.currentItem.model.defence : 0
                     onValueChanged: {
                         if (listView.currentItem) {

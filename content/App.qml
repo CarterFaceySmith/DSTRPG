@@ -12,28 +12,6 @@ ApplicationWindow {
     title: "DSTRPG"
     color: "#f0f0f0"
 
-    // DungeonGenerator {
-    //     id: dungeonGenerator
-    // }
-
     PartyStats{}
     MapItem {}
-    // MapPage {}
-
-    // DungeonGrid {
-    //     dungeonGenerator: dungeonGenerator
-    // }
-
-    // Main content layout
-    // RowLayout {
-    //     // Left side: Party
-    //     PartyStats {
-    //         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-    //     }
-
-    //     // Right side: Map
-    //     MapItem {
-    //         Layout.alignment: Qt.AlignRight | Qt.AlignTop
-    //     }
-    // }
 }

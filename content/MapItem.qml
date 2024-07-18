@@ -2,27 +2,47 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-    width: parent.width * 0.4
+    width: parent.width * 0.7
     height: parent.height
     color: "light gray"
     anchors.right: parent.right
 
-    Repeater {
-        model: 9
-        delegate: RowLayout {
-            anchors.verticalCenter: parent.verticalCenter
-            spacing: 3  // Adjust spacing between rectangles as needed
+    GridLayout {
+        id: grid
+        anchors.fill: parent
+        rows: 12
+        columns: 12
+        property double colMulti: grid.width / grid.columns
+        property double rowMulti: grid.height / grid.rows
+        function prefWidth(item){
+            return colMulti * item.Layout.columnSpan
+        }
+        function prefHeight(item){
+            return rowMulti * item.Layout.rowSpan
+        }
 
-            Repeater {
-                model: 9
-                delegate: Rectangle {
-                    width: 40
-                    height: 40
-                    color: "green"
-                    border.color: "light gray"
-                    border.width: 3
-                }
-            }
+        Rectangle {
+            // color: 'red'
+            Layout.rowSpan: 8
+            Layout.columnSpan: 2
+            Layout.preferredWidth: grid.prefWidth(this)
+            Layout.preferredHeight: grid.prefHeight(this)
+            CharacterEditor{}
+        }
+        Rectangle {
+            color: 'yellow'
+            Layout.rowSpan: 8
+            Layout.columnSpan: 10
+            Layout.preferredWidth: grid.prefWidth(this)
+            Layout.preferredHeight: grid.prefHeight(this)
+        }
+        Rectangle {
+            id: greenRect
+            color: 'green'
+            Layout.rowSpan: 4
+            Layout.columnSpan: 12
+            Layout.preferredWidth: grid.prefWidth(this)
+            Layout.preferredHeight: grid.prefHeight(this)
         }
     }
 }
