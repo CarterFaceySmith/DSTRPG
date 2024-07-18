@@ -17,7 +17,7 @@ Item {
                 width: parent.width
                 height: 100
                 color: "#e0e0e0"
-                border.color: "#cccccc"
+                border.color: "gray"
                 border.width: 2
                 radius: 10
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -56,7 +56,7 @@ Item {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
 
                 Text {
-                    text: "HTH"
+                    text: "HP"
                     font.bold: true
                     color: "#333333"
                 }
@@ -66,6 +66,26 @@ Item {
                     onValueChanged: {
                         if (listView.currentItem) {
                             characterModel.set(listView.currentIndex, "health", value)
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                spacing: 20
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+
+                Text {
+                    text: "MP"
+                    font.bold: true
+                    color: "#333333"
+                }
+                SpinBox {
+                    width: 100
+                    value: listView.currentItem ? listView.currentItem.model.mana : 0
+                    onValueChanged: {
+                        if (listView.currentItem) {
+                            characterModel.set(listView.currentIndex, "mana", value)
                         }
                     }
                 }
@@ -106,6 +126,46 @@ Item {
                     onValueChanged: {
                         if (listView.currentItem) {
                             characterModel.set(listView.currentIndex, "defence", value)
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                spacing: 20
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+
+                Text {
+                    text: "INT"
+                    font.bold: true
+                    color: "#333333"
+                }
+                SpinBox {
+                    width: 100
+                    value: listView.currentItem ? listView.currentItem.model.attack : 0
+                    onValueChanged: {
+                        if (listView.currentItem) {
+                            characterModel.set(listView.currentIndex, "attack", value)
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                spacing: 20
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+
+                Text {
+                    text: "STR"
+                    font.bold: true
+                    color: "#333333"
+                }
+                SpinBox {
+                    width: 100
+                    value: listView.currentItem ? listView.currentItem.model.strength : 0
+                    onValueChanged: {
+                        if (listView.currentItem) {
+                            characterModel.set(listView.currentIndex, "strength", value)
                         }
                     }
                 }
