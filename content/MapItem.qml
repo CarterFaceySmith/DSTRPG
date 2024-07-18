@@ -35,6 +35,12 @@ Rectangle {
             Layout.columnSpan: 10
             Layout.preferredWidth: grid.prefWidth(this)
             Layout.preferredHeight: grid.prefHeight(this)
+            Text {
+                font.pixelSize: 26
+                color: "#333333"
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                text: qsTr("MAP AREA")
+            }
         }
         Rectangle {
             id: greenRect
@@ -43,6 +49,12 @@ Rectangle {
             Layout.columnSpan: 12
             Layout.preferredWidth: grid.prefWidth(this)
             Layout.preferredHeight: grid.prefHeight(this)
+            Text {
+                font.pixelSize: 26
+                color: "#333333"
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                text: qsTr("TEXT OUTPUT AREA")
+            }
         }
     }
 }

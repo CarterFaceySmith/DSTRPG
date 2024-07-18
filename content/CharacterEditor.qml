@@ -1,4 +1,4 @@
-import QtQuick 6.2
+import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
@@ -6,7 +6,6 @@ Item {
     Rectangle {
         width: parent.width
         height: parent.height
-        anchors.right: parent.right
         color: "#f0f0f0"
 
         ColumnLayout {
@@ -17,7 +16,7 @@ Item {
                 width: parent.width
                 height: 100
                 color: "#e0e0e0"
-                border.color: "gray"
+                border.color: "#cccccc"
                 border.width: 2
                 radius: 10
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
