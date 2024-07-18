@@ -55,7 +55,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Text {
-                                text: "Health"
+                                text: "HP"
                                 font.bold: true
                                 color: "#333333"
                             }
@@ -85,7 +85,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Text {
-                                text: "Mana"
+                                text: "MP"
                                 font.bold: true
                                 color: "#333333"
                             }
@@ -116,7 +116,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Label {
-                                text: "Attack:"
+                                text: "ATK"
                                 font.bold: true
                                 color: "#333333"
                             }
@@ -128,7 +128,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Label {
-                                text: "Defence:"
+                                text: "DEF"
                                 font.bold: true
                                 color: "#333333"
                             }
@@ -140,7 +140,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Label {
-                                text: "Intelligence:"
+                                text: "INT"
                                 font.bold: true
                                 color: "#333333"
                             }
@@ -152,7 +152,7 @@ Rectangle {
                         RowLayout {
                             spacing: 10
                             Label {
-                                text: "Strength:"
+                                text: "STR"
                                 font.bold: true
                                 color: "#333333"
                             }

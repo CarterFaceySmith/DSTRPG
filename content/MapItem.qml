@@ -56,7 +56,7 @@ Rectangle {
                     model: 7
                     Rectangle {
                         Text {
-                            text: qsTr("Map Square")
+                            text: qsTr("Map Square - Ground")
                         }
 
                         width: parent.width / 8
