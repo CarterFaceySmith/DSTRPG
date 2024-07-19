@@ -70,7 +70,7 @@ ApplicationWindow {
         id: helper
         focus: false
         property var myColors: {"bglight": "#FAF8EF",
-                                "bggray": Qt.rgba(238/255, 228/255, 218/255, 0.35),
+                                "bggrey": Qt.rgba(238/255, 228/255, 218/255, 0.35),
                                 "bgdark": "#BBADA0",
                                 "fglight": "#EEE4DA",
                                 "fgdark": "#776E62",
@@ -84,7 +84,6 @@ ApplicationWindow {
     GameScreen {}
 
     MessageDialog {
-        visible: true
         id: messageDialog
         title: "Welcome to DSTRPG"
         text: "You may select an initial party from the Settings dropdown"
