@@ -17,7 +17,7 @@ qt_add_executable(DSTRPG src/main.cpp
 
     content/CharacterModel.h content/CharacterModel.cpp
     content/CharacterStats.h content/CharacterStats.cpp
-    content/DungeonGenerator.h content/DungeonGenerator.cpp
+
 )
 
 qt_add_resources(DSTRPG "configuration"

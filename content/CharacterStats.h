@@ -23,6 +23,9 @@ public:
 
     CharacterStats(const QString &name, int level, int health, int mana, int attack, int defence, int intelligence, int strength, QObject *parent = nullptr);
 
+    CharacterStats createCharacter(QString name, int level, int health, int mana, int attack, int defence, int intelligence, int strength);
+    std::unordered_map<std::string, CharacterStats> generateGenericChars();
+
     QString name() const;
     void setName(const QString &name);
 

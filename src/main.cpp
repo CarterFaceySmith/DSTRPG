@@ -12,42 +12,31 @@
 #include "content/DungeonGenerator.h"
 #include "qqmlcontext.h"
 
-CharacterStats createChar(QString name, int level, int health, int mana, int attack, int defence, int intelligence, int strength){
-    CharacterStats charStats;
-    charStats.setName(name);
-    charStats.setLevel(level);
-    charStats.setHealth(health);
-    charStats.setMana(mana);
-    charStats.setAttack(attack);
-    charStats.setDefence(defence);
-    charStats.setIntelligence(intelligence);
-    charStats.setStrength(strength);
-    return charStats;
-}
-
 int main(int argc, char *argv[])
 {
     set_qt_environment();
 
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<DungeonGenerator>("DSTRPG", 1, 0, "DungeonGenerator");
     qmlRegisterType<CharacterModel>("DSTRPG", 1, 0, "CharacterModel");
 
     // Create the main character stats object
-    CharacterStats warriorStats = createChar("Warrior", 10, 100, 10, 30, 60, 10, 80);
-    CharacterStats mageStats = createChar("Mage", 10, 50, 100, 10, 10, 80, 10);
-    CharacterStats rogueStats = createChar("Rogue", 10, 75, 50, 20, 30, 40, 40);
-    CharacterStats rinzlerStats = createChar("RINZLR", 90, 1000, 1000, 200, 200, 200, 200);
+    // CharacterStats warriorStats = CharacterStats::createCharacter("Warrior", 1, 10, 0, 10, 20, 0, 15);
+    // CharacterStats mageStats = createChar("Mage", 10, 50, 100, 10, 10, 80, 10);
+    // CharacterStats rogueStats = createChar("Rogue", 10, 75, 50, 20, 30, 40, 40);
+    // CharacterStats rinzlerStats = createChar("RINZLR", 90, 1000, 1000, 200, 200, 200, 200);
+
     // Create the model and populate it with character stats
-    CharacterModel characterModel;
-    characterModel.addCharacter(warriorStats);
-    characterModel.addCharacter(mageStats);
-    characterModel.addCharacter(rogueStats);
-    characterModel.addCharacter(rinzlerStats);
+    CharacterModel charModel;
+    CharacterStats charStats;
+    std::unordered_map<std::string, CharacterStats> genericChars = charStats.generateGenericChars();
+
+    for(auto character : genericChars) {
+        charModel.addCharacter(character.second);
+    }
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("characterModel", &characterModel);
+    engine.rootContext()->setContextProperty("charModel", &charModel);
 
     const QUrl url(u"qrc:/qt/qml/Main/main.qml"_qs);
     QObject::connect(

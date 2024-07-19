@@ -12,9 +12,10 @@ qt6_add_qml_module(content
     RESOURCES
         fonts/fonts.txt
         QML_FILES CharacterEditor.qml
-        QML_FILES MapPage.qml
+        QML_FILES GameScreen.qml
         QML_FILES PartyStats.qml
         QML_FILES MapItem.qml
         SOURCES
-        QML_FILES DungeonGrid.qml
+        QML_FILES
+        QML_FILES
 )
