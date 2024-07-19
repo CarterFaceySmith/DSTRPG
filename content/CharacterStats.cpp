@@ -2,7 +2,7 @@
 #include <vector>
 
 CharacterStats::CharacterStats(QObject *parent)
-    : QObject(parent), m_level(11), m_health(100), m_mana(100), m_attack(10), m_defence(10), m_intelligence(10), m_strength(10)
+    : QObject(parent), m_level(10), m_health(100), m_mana(100), m_attack(10), m_defence(10), m_intelligence(10), m_strength(10)
 {
 }
 
@@ -34,6 +34,10 @@ std::unordered_map<std::string, CharacterStats> CharacterStats::generateGenericC
 
     return genericCharMap;
 }
+
+// CharacterStats ChacracterStats::queryPrimary(std::unorded_map<std::string, CharacterStats> genericChars, std::string className) {
+//     return genericChars[className];
+// }
 
 CharacterStats &CharacterStats::operator=(const CharacterStats &other)
 {

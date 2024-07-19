@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 
 Item {
     width: 500
@@ -38,7 +39,7 @@ Item {
                 height: 55
                 radius: 3
                 color: helper.myColors.bgdark
-                property string scoreText: "100"// Score check func
+                property string scoreText: "0"// Score check func
                 Text {
                     text: (index == 0) ? qsTr("SCORE") : qsTr("BEST")
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -107,6 +108,16 @@ Item {
         verticalAlignment: Text.AlignVCenter
     }
 
+    MessageDialog {
+        id: welcomeDialog
+        title: "Welcome to DSTRPG!"
+        text: "Select your initial character from the menu bar, then get flipping to play!"
+        onAccepted: {
+            console.log("Test msg - user accepted welcome dialog box.")
+        }
+        Component.onCompleted: visible = false
+    }
+
     Button {
         width: 140
         height: 50
@@ -125,7 +136,7 @@ Item {
                 font.bold: true
             }
         }
-        // onClicked: // Init party
+        onClicked: welcomeDialog.visible = true // Welcome and init party
     }
 
     Rectangle {
@@ -164,10 +175,6 @@ Item {
                             name: "flipped"
                             PropertyChanges { target: flipAnimation; angle: 180 }
                         }
-                        // State {
-                        //     name: "not flipped"
-                        //     PropertyChanges { target: flipAnimation; angle: 180 }
-                        // }
                     ]
 
                     transitions: [

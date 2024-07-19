@@ -16,7 +16,7 @@ ApplicationWindow {
 
     menuBar: MenuBar {
         Menu {
-            title: qsTr("File")
+            title: qsTr("FILE")
             MenuItem {
                 text: qsTr("New Game")
                 onTriggered: messageDialog.visible = true // Trigger startup func
@@ -27,38 +27,58 @@ ApplicationWindow {
             }
         }
         Menu {
-            title: qsTr("Settings")
+            title: qsTr("SETTINGS")
             Menu {
                 title: qsTr("Initial Party")
                 MenuItem {
+                    id: warriorCheckbox
                     text: qsTr("Warrior")
                     checkable: true
                     // checked: // Check party index one name
                     onTriggered: {
+                        rogueCheckbox.checkable = false
+                        mageCheckbox.checkable = false
+                        rinzlerCheckbox.checkable = false
+                        console.log("Player chose Warrior...")
                         // Set player to warrior and run startup func
                     }
                 }
                 MenuItem {
+                    id: rogueCheckbox
                     text: qsTr("Rogue")
                     checkable: true
                     // checked: // Check party index one name
                     onTriggered: {
+                        warriorCheckbox.checkable = false
+                        mageCheckbox.checkable = false
+                        rinzlerCheckbox.checkable = false
+                        console.log("Player chose Rogue...")
                         // Set player to rogue and run startup func
                     }
                 }
                 MenuItem {
+                    id: mageCheckbox
                     text: qsTr("Mage")
                     checkable: true
                     // checked: // Check party index one name
                     onTriggered: {
+                        rogueCheckbox.checkable = false
+                        warriorCheckbox.checkable = false
+                        rinzlerCheckbox.checkable = false
+                        console.log("Player chose Mage...")
                         // Set player to mage and run startup func
                     }
                 }
                 MenuItem {
+                    id: rinzlerCheckbox
                     text: qsTr("???")
                     checkable: true
                     // checked: // Check party index one name
                     onTriggered: {
+                        rogueCheckbox.checkable = false
+                        warriorCheckbox.checkable = false
+                        mageCheckbox.checkable = false
+                        console.log("Player chose ???/Rinzler...")
                         // Set player to rinzlr and run startup func
                     }
                 }
