@@ -3,6 +3,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import DSTRPG
 
 ApplicationWindow {
@@ -18,12 +19,11 @@ ApplicationWindow {
             title: qsTr("File")
             MenuItem {
                 text: qsTr("New Game")
-                // onTriggered: // Trigger startup func
+                onTriggered: messageDialog.visible = true // Trigger startup func
             }
             MenuItem {
                 text: qsTr("Exit")
-                // shortcut: "Ctrl+Q"
-                // onTriggered: // Trigger cleanup func
+                onTriggered: Qt.exit()
             }
         }
         Menu {
@@ -82,6 +82,17 @@ ApplicationWindow {
 
     PartyStats {}
     GameScreen {}
+
+    MessageDialog {
+        visible: true
+        id: messageDialog
+        title: "Welcome to DSTRPG"
+        text: "You may select an initial party from the Settings dropdown"
+        onAccepted: {
+            console.log("Test msg - user accepted initial dialog box.")
+        }
+        Component.onCompleted: visible = false
+    }
 }
 
     // PartyStats{}

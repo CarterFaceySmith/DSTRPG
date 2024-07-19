@@ -9,7 +9,6 @@
 #include "import_qml_plugins.h"
 #include "content/CharacterStats.h"
 #include "content/CharacterModel.h"
-#include "content/DungeonGenerator.h"
 #include "qqmlcontext.h"
 
 int main(int argc, char *argv[])
@@ -19,12 +18,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<CharacterModel>("DSTRPG", 1, 0, "CharacterModel");
-
-    // Create the main character stats object
-    // CharacterStats warriorStats = CharacterStats::createCharacter("Warrior", 1, 10, 0, 10, 20, 0, 15);
-    // CharacterStats mageStats = createChar("Mage", 10, 50, 100, 10, 10, 80, 10);
-    // CharacterStats rogueStats = createChar("Rogue", 10, 75, 50, 20, 30, 40, 40);
-    // CharacterStats rinzlerStats = createChar("RINZLR", 90, 1000, 1000, 200, 200, 200, 200);
+    qmlRegisterType<CharacterStats>("DSTRPG", 1, 0, "CharacterStats");
 
     // Create the model and populate it with character stats
     CharacterModel charModel;
