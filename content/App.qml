@@ -23,7 +23,7 @@ ApplicationWindow {
             }
             MenuItem {
                 text: qsTr("Exit")
-                onTriggered: Qt.exit()
+                onTriggered: Qt.exit(0)
             }
         }
         Menu {
@@ -62,7 +62,7 @@ ApplicationWindow {
                     checkable: true
                     // checked: // Check party index one name
                     onTriggered: {
-                        rogueCheckbox.checkable = false
+                        rogueCheckbox.checkable = false //TODO: Amend checkboxes to reinit if class unchecked
                         warriorCheckbox.checkable = false
                         rinzlerCheckbox.checkable = false
                         console.log("Player chose Mage...")
